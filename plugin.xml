@@ -32,8 +32,10 @@
         <source-file src="src/ios/ConnectSDKCordovaDispatcher.m" />
         <header-file src="src/ios/ConnectSDKCordovaObjects.h" />
         <source-file src="src/ios/ConnectSDKCordovaObjects.m" />
+        <source-file src="libConnectSDK.a" framework="true"/>
 
         <framework src="libicucore.dylib" />
+        <framework src="GoogleCast.framework" custom="true" />
 
         <info>
     Next, you will need to add the Connect SDK iOS library and dependent framworks.
