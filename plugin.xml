@@ -32,6 +32,8 @@
         <source-file src="src/ios/ConnectSDKCordovaDispatcher.m" />
         <header-file src="src/ios/ConnectSDKCordovaObjects.h" />
         <source-file src="src/ios/ConnectSDKCordovaObjects.m" />
+        
+        <header-file src="src/ios/ConnectSDK/ConnectSDK.h" />
         <source-file src="libConnectSDK.a" framework="true"/>
 
         <framework src="libicucore.dylib" />
