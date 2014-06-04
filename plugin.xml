@@ -35,6 +35,7 @@
 
         <framework src="libicucore.dylib" />
         <framework src="ConnectSDK.framework" custom="true" />
+        <framework src="GoogleCast.framework" custom="true" />
 
         <info>
         </info>

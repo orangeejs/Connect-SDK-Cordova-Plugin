@@ -1,3 +1,11 @@
+#OrangeeJS enhancement
+
+Make it easy to install (no more extra steps with xcode)
+cordova plugins add https://github.com/orangeejs/Connect-SDK-Cordova-Plugin.git
+
+
+#############Original README#################
+
 # Connect SDK Cordova/PhoneGap Plugin
 
 Connect SDK is an open source framework that unifies device discovery and connectivity by providing one set of methods that work across multiple television platforms and protocols.
