@@ -3,6 +3,10 @@
 Make it easy to install (no more extra steps with xcode)
 cordova plugins add https://github.com/orangeejs/Connect-SDK-Cordova-Plugin.git
 
+#update with upstream (https://help.github.com/articles/syncing-a-fork)
+git fetch upstream
+git co master
+git merge upstream/master
 
 #############Original README#################
 
