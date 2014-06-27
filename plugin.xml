@@ -33,6 +33,7 @@
         <header-file src="src/ios/ConnectSDKCordovaObjects.h" />
         <source-file src="src/ios/ConnectSDKCordovaObjects.m" />
 
+        <framework src="libz.dylib" />
         <framework src="libicucore.dylib" />
         <framework src="ConnectSDK.framework" custom="true" />
         <framework src="GoogleCast.framework" custom="true" />
