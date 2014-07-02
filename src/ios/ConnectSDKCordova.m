@@ -21,6 +21,7 @@
 #import "ConnectSDKCordovaDispatcher.h"
 #import "ConnectSDK/CapabilityFilter.h"
 #import "ConnectSDKCordovaObjects.h"
+#import "ConnectSDK/AirPlayService.h"
 
 #pragma mark - Helper types
 
@@ -85,6 +86,15 @@
                 [_discoveryManager setPairingLevel:ConnectableDevicePairingLevelOff];
             } else if ([pairingLevel isEqualToString:@"on"]) {
                 [_discoveryManager setPairingLevel:ConnectableDevicePairingLevelOn];
+            }
+        }
+        
+        NSString* airPlayServiceMode = config[@"airPlayServiceMode"];
+        if (airPlayServiceMode) {
+            if ([airPlayServiceMode isEqualToString:@"webapp"]) {
+                [AirPlayService setAirPlayServiceMode:AirPlayServiceModeWebApp];
+            } else if ([airPlayServiceMode isEqualToString:@"media"]) {
+                [AirPlayService setAirPlayServiceMode:AirPlayServiceModeMedia];
             }
         }
         
@@ -164,11 +174,12 @@
     DevicePicker *picker = [_discoveryManager devicePicker];
     picker.delegate = self;
     
+    UIView *view = [self.viewController view];
+    
     if (popup) {
-        UIView *view = [self.viewController view];
         [picker showActionSheet:view];
     } else {
-        [picker showPicker:self];
+        [picker showPicker:view];
     }
 }
 
@@ -527,6 +538,15 @@ static id orNull (id obj)
             break;
         case DeviceServicePairingTypeNone:
             pairingInfo = @{@"pairingType": @"none"};
+            break;
+        case DeviceServicePairingTypeMixed:
+            pairingInfo = @{@"pairingType": @"mixed"};
+            break;
+        case DeviceServicePairingTypeAirPlayMirroring:
+            // TODO: provide a way to override automatically showing alert
+            [(UIAlertView *)pairingData show];
+            
+            pairingInfo = @{@"pairingType": @"airPlayMirroring"};
             break;
     }
     
